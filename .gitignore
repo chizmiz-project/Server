@@ -32,7 +32,6 @@ db.sqlite3-journal
 local_settings.py
 settings_local.py
 .env
-.env.*
 *.pot
 
 # Flask-specific
@@ -118,10 +117,6 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
-# PyInstaller
-*.manifest
-*.spec
-
 # Translation files
 *.mo
 
@@ -142,12 +137,6 @@ celerybeat.pid
 # Local files
 *.ini
 *.cfg
-
-# Coverage and testing
-.coverage
-.coverage.*
-.hypothesis/
-.pytest_cache/
 
 # PyBuilder
 .pybuilder/
