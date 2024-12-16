@@ -1,7 +1,14 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
+import posixpath
+from uuid import uuid4
+
+
+def main_pictures_path(_instance, filename):
+    _, ext = posixpath.splitext(filename)
+    safe_name = str(uuid4())
+    return posixpath.join("main_pictures", "{}{}".format(safe_name, ext))
 
 class Advertisement(models.Model):
 
@@ -12,9 +19,11 @@ class Advertisement(models.Model):
     )
 
     id = models.AutoField(primary_key=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="ads")
     title = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=19)
     status = models.IntegerField(choices=STATUS_CHOICES, default=1)
+    main_picture = models.ImageField(upload_to=main_pictures_path)
 
