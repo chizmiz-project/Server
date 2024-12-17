@@ -19,3 +19,6 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
         if self.action in ['retrieve', 'list']:
             return [AllowAny()]
         return [IsAuthenticated()]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
