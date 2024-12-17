@@ -12,6 +12,12 @@ python -m venv venv
 source venv/bin/activate  # On Windows, use venv\Scripts\activate
 ```
 
+- Install postgresql:
+
+```bash
+brew install postgresql
+```
+
 - Install dependencies from requirements.txt:
 
 ```bash

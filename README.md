@@ -1,6 +1,6 @@
-# SecondChance
+# ChizMiz
 
-SecondChance is a marketplace for buying and selling second-hand items.
+ChizMiz is a marketplace for buying and selling second-hand items.
 
 Sellers can list their items, and buyers can negotiate to find the best deal.The goal is to give items a second chance
 and reduce waste through reuse.
