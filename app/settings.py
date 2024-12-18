@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drf_yasg',
-
+    'rest_framework',
+    'account',
     'ad'
 ]
 
@@ -77,11 +78,15 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / os.getenv('DB_NAME', default='db.sqlite3'),
-        # 'USER': config('DB_USER', default=''),
-        # 'PASSWORD': config('DB_PASSWORD', default=''),
-        # 'HOST': config('DB_HOST', default=''),
-        # 'PORT': config('DB_PORT', default=''),
+        'NAME': BASE_DIR / 'db.sqlite3',
+
+        # Production database settings:
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': os.getenv('DB_NAME', default=''),
+        # 'USER': os.getenv('DB_USER', default=''),
+        # 'PASSWORD': os.getenv('DB_PASSWORD', default=''),
+        # 'HOST': os.getenv('DB_HOST', default=''),
+        # 'PORT': os.getenv('DB_PORT', default=''),
     }
 }
 
