@@ -23,21 +23,22 @@ from drf_yasg import openapi
 
 # Swagger schema view
 schema_view = get_schema_view(
-   openapi.Info(
-      title="My API",
-      default_version='v1',
-      description="API documentation for my project",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@myapi.local"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
+    openapi.Info(
+        title="My API",
+        default_version='v1',
+        description="API documentation for my project",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@myapi.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),  # Swagger UI
-    path('ads/', include("ad.urls"))
+    path('account/', include('account.urls')),
+    path('advertisement/', include("advertisement.urls"))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
